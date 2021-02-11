@@ -5,47 +5,47 @@ L'utente inserisce le cifre del numero binario un bit alla volta, partendo dal b
 meno significativo. Il programma visualizzerà il numero decimale corrispondete.
 */
 
-#include <iostream>
+#include <stdio.h>
 #include <math.h>
 using namespace std;
 
-int main()
+int main() 
 {
 	int numBin[8];
 	int x = 0;
 	int prima, seconda, terza, quarta, quinta, sesta, settima, ottava, tot;
-	
-	for(int i = 8; i != 0; i--)
+
+	for(int i = 8; i != 0; i--) 
 	{
-		cout << "Inserisci una cifra binaria (partendo dala cifra meno significativa) binario: " << endl;
-		cin >> numBin[x];
+		printf("Inserisci una cifra binaria (partendo dala cifra meno significativa) binario: \n");
+		scanf("%d", &numBin[x]);
 		x = x + 1;
 	}
-	
-	prima = numBin[1];
-	
-	seconda = numBin[2];
+
+	prima = numBin[0];
+
+	seconda = numBin[1];
 	seconda *= pow(2,1);
-	
-	terza = numBin[3];
+
+	terza = numBin[2];
 	terza *= pow(2,2);
-	 
-	quarta = numBin[4];
+
+	quarta = numBin[3];
 	quarta *= pow(2,3);
-	
-	quinta = numBin[5];
+
+	quinta = numBin[4];
 	quinta *= pow(2,4);
-	
-	sesta = numBin[6];
+
+	sesta = numBin[5];
 	sesta *= pow(2,5);
-	
-	settima = numBin[7];
+
+	settima = numBin[6];
 	settima *= pow(2,6);
-	
-	ottava = numBin[8];
-	ottava *= pow(2,7); 
-	
+
+	ottava = numBin[7];
+	ottava *= pow(2,7);
+
 	tot = prima  + seconda + terza + quarta + quinta + sesta + settima + ottava;
-	
-	cout << "Il risultato e' " << tot;
+
+	printf("Il numero in decimale e' %d", tot);
 }
