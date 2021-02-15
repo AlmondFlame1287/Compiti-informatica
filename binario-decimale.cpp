@@ -8,7 +8,7 @@ meno significativo. Il programma visualizzerà il numero decimale corrispondete.
 #include <stdio.h>
 #include <math.h>
 
-
+//Se vi chiedete come mai in c++ e non in c, è perchè mi dà un errore "for cycle is declared in C11 and C99" o una cosa del genere.
 int main() 
 {
 	int numBin[8];
