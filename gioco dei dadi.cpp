@@ -106,7 +106,7 @@ int main()
 
 void continua()
 {
-	while (saldo > 0)
+	while (saldo > 0 && c != 0)
 	{
 		printf("Il saldo disponibile e' %d. Quant'e' la tua puntata?\n", saldo);
 		scanf("%d", &puntata);
