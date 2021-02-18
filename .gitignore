@@ -1,2 +1,9 @@
 
 *.exe
+*.json
+*.opendb
+*.ipch
+*.db-wal
+*.db-shm
+.vs/slnx.sqlite
+.vs/Compiti-informatica/v16/Browse.VC.db
