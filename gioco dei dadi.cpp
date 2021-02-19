@@ -37,8 +37,8 @@ void continua();
 
 
 //dichiarazione variabili globali
-int saldo = 1000, puntata, dado1, dado2, sdado, probVittoria; 
-int c; 
+int saldo = 1000, puntata, dado1, dado2, sdado, probVittoria, c = 1; 
+
 
 int main()
 {
@@ -48,7 +48,7 @@ int main()
 	scanf("%d", &puntata);
 	do
 	{
-		if (puntata <= saldo)
+		if (puntata <= saldo && puntata > 0)
 		{
 			//se la puntata è grossa allora più possibilità di vittoria
 			if (puntata > 600)
