@@ -49,69 +49,87 @@ int main()
 
 		do
 		{
-			if (puntata <= saldo)
+			if(saldo > 0)
 			{
-				//se la puntata è grossa allora più possibilità di vittoria
-				if (puntata > 600)
+				if (puntata <= saldo)
 				{
-					probVittoria = rand() % 100 + 25;
-					probSconfitta = rand() % 100 + 1;
-					probVittoria -= probSconfitta;
-				}
-				else if(puntata >= 300 && puntata <= 599)
-				{
-					probVittoria = rand() % 100 + 1;
-					probSconfitta = rand() % 100 + 25;
-					probVittoria -= probSconfitta;
-				}
-				else
-				{
-					probVittoria = rand() % 100 + 1;
-					probSconfitta = rand() % 100 + 50;
-					probVittoria -= probSconfitta;
-				}
-
-				//sistema casuale dei dadi
-				if (probVittoria > 95)
-				{
-					dado1 = rand() % 6 + 2;
-					dado2 = rand() % 6 + 2;
-				}
-				else
-				{
-					dado1 = rand() % 6;
-					dado2 = rand() % 6;
-				}
-				sdado = dado1 + dado2;
-
-
-				if (sdado > 6)
-				{
-					saldo = saldo + puntata;
-					printf("Hai fatto %d. Hai vinto %d. Il saldo disponibile e' ora %d. Vuoi continuare? (1  = continua/ 0 = termina)\n", sdado, puntata, saldo);
-					scanf("%d", &c);
-				}
-				else
-				{
-					saldo -= puntata;
-					printf("Hai fatto %d. Hai perso %d. Il saldo disponibile e' ora %d. Vuoi continuare? (1 = continua/ 0 = termina)\n", sdado, puntata, saldo);
-					scanf("%d", &c);
-				}
+					//se la puntata è grossa allora più possibilità di vittoria
+					if (puntata > 600)
+					{
+						probVittoria = rand() % 100 + 25;
+						probSconfitta = rand() % 100 + 1;
+						probVittoria -= probSconfitta;
+					}
+					else if(puntata >= 300 && puntata <= 599)
+					{
+						probVittoria = rand() % 100 + 1;
+						probSconfitta = rand() % 100 + 25;
+						probVittoria -= probSconfitta;
+					}
+					else
+					{
+						probVittoria = rand() % 100 + 1;
+						probSconfitta = rand() % 100 + 50;
+						probVittoria -= probSconfitta;
+					}
 	
-				if (c == 1)
-				{
-					main();
+					//sistema casuale dei dadi
+					if (probVittoria > 95)
+					{
+						dado1 = rand() % 6 + 2;
+						dado2 = rand() % 6 + 2;
+					}
+					else
+					{
+						dado1 = rand() % 6;
+						dado2 = rand() % 6;
+					}
+					sdado = dado1 + dado2;
+	
+	
+					if (sdado > 6)
+					{
+						saldo = saldo + puntata;
+						printf("Hai fatto %d. Hai vinto %d. Il saldo disponibile e' ora %d. Vuoi continuare? (1  = continua/ 0 = termina)\n", sdado, puntata, saldo);
+						scanf("%d", &c);
+					}
+					else
+					{
+						saldo -= puntata;
+						printf("Hai fatto %d. Hai perso %d. Il saldo disponibile e' ora %d. Vuoi continuare? (1 = continua/ 0 = termina)\n", sdado, puntata, saldo);
+						scanf("%d", &c);
+					}
+		
+					if (c == 1)
+					{
+						main();
+					}
+					else
+					{
+						printf("E' finita per te..");
+					}
 				}
 				else
 				{
-					printf("E' finita per te..");
+					printf("Guarda che non puoi puntare piu' di quello che hai -.-\n");
+					printf("Il saldo disponibile e' %d. Quant'e' la tua puntata?\n", saldo);
+					scanf("%d", &puntata);
 				}
-			}
+			} 
 			else
 			{
-				printf("Guarda che non puoi puntare piu' di quello che hai -.-\n");
-				printf("Il saldo disponibile e' %d. Quant'e' la tua puntata?\n", saldo);
-				scanf("%d", &puntata);
+				do
+				{
+					printf("E' finita per te.. premi 0 per uscire.");
+					scanf("%d", &c);
+					
+					if(c != 0)
+					{
+						printf("E' finita per te.. premi 0 per uscire.");
+						scanf("%d", &c);
+					}
+				} while(c != 0);
+					
 			}
 		} while (puntata >= saldo && c != 0);
 	}
