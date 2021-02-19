@@ -25,6 +25,7 @@ int main()
 
     printf("0\n");
     printf("1\n");
+    printf("1\n");
 
     for (i = 2; i < N; i++) 
 	{
