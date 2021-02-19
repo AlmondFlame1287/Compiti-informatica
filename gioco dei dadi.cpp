@@ -81,8 +81,8 @@ int main()
 					}
 					else
 					{
-						dado1 = rand() % 6;
-						dado2 = rand() % 6;
+						dado1 = rand() % 6 + 1;
+						dado2 = rand() % 6 + 1;
 					}
 					sdado = dado1 + dado2;
 	
