@@ -39,7 +39,7 @@ void continua();
 //dichiarazione variabili globali
 int saldo = 1000, puntata, dado1, dado2, sdado, probVittoria, probSconfitta, c = 1; 
 
-
+//Fatto in collaborazione con Grusio Cristoforo e Di Bernardo Alessandro :3
 int main()
 {
 	while (saldo > 0 && c != 0)
