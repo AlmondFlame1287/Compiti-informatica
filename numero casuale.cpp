@@ -1,58 +1,44 @@
-/*
-Scrivi un programma che legge un numero compreso tra 10 e 20 e genera altrettanti numeri casuali compresi tra 100 e 200.
-il numero conta quanti numeri pari e dispari sono stati visualizzati,visualizzando per ciascun gruppola loro media
-*/
-
-//in c++ e non in c sempre per via del c11 o c99
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <iostream>
+#include <stdlib.h> // srand, rand
+#include <time.h>	// time
 
 int main()
 {
-  int n = 0;
-  int casuale = 0, numPari, numDispari;
-  float pari = 0, dispari = 0;
-  
-  do
-  {
-    printf("Inserisci un numero tra 10 e 20: ");
-    scanf("%d", &n);
+	int n, numero, cont = 0, totPari, totDispari, contaPari, contaDispari;
+	do
+	{ // compresa tra 10 e 20
+		printf("Inserisci un numero 10 < N < 20: ");
+		scanf("%d", &n);
+	} while ((n < 10) || (n > 20));
 
-    if(n >= 10 && n <= 20)
-    {
-		srand(time(NULL));
-		for(int i = 0;i < n;i++)
+	contaPari = 0;
+	contaDispari = 0;
+	totPari = 0;
+	totDispari = 0;
+	srand(time(NULL)); // inizializzo il seme
+
+	do
+	{
+		numero = (rand() % 100) + 101; // numero tra 100 e 200
+		printf("%d ", numero);
+		cont = cont + 1;			   // incremento il contatore
+		if (numero % 2 == 0)
 		{
-			casuale = rand()%200 + 100;
-			if(casuale >= 100 && casuale <= 200)
-			{
-				printf(" %d ", casuale);
-				if(casuale % 2 == 0)
-				{
-					numPari++;
-					pari += casuale;
-					pari /= numPari;
-				}
-				else
-				{
-					numDispari++;
-					dispari += casuale;
-					dispari /= numDispari;
-				}
-			}
-			
-			else if(casuale < 100 || casuale > 200)
-			{
-				i--;
-			}	
+			contaPari++;
+			totPari += numero;
 		}
-		printf("Media dispari: %f \t", dispari);
-		printf("Media pari: %f \t", pari);
-    }
-    else
-    {
-		printf("Ti ho detto un numero tra 10 e 20.. \n");		
-    }
-  } while(n < 10 || n > 20);
+		else
+		{
+			contaDispari++;
+			totDispari += numero;
+		}
+
+	} while (cont < n); // condizione di uscita
+	printf("\ni pari sono : %d", contaPari);
+	printf("\nla media e\'  : %.2f", (float)(totPari / contaPari));
+	printf("\ni dispari sono : %d", contaDispari);
+	printf("\nla media e\'    : %.2f", (float)(totDispari / contaDispari));
+
+	printf("\n\n");
+	return 0;
 }
