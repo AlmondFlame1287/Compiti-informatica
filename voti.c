@@ -15,6 +15,9 @@ int main()
     printf("Che voto hai preso?: \n");
     scanf("%d", &voti);
 
+    //fflush(stdin) pulisce lo standard inpunt, scanf lascia qualcosa nel buffer 
+    //che viene letto da getchar e va avanti
+    fflush(stdin); 
     printf("Vuoi continuare?: \n");
     continua = getchar();
 
