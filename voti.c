@@ -1,0 +1,27 @@
+/*
+Scrivi un programma che effettua il calcolo della media dei voti della pagella,
+inserendoli uno alla volta e chiedendo a ogni inserimento di un numero
+se i voti da inserire sono terminati accettando come risposta S oppure N.*/
+
+#include <stdio.h>
+
+int main()
+{
+  int voti = 0, cont = 0, votiPre; //votiPre = voto precendente
+  char continua;
+
+  while(continua != 'n' || continua != 'N')
+  {
+    printf("Che voto hai preso?: \n");
+    scanf("%d", &voti);
+
+    printf("Vuoi continuare?: \n");
+    continua = getchar();
+
+    votiPre = voti;
+    voti += votiPre;
+    cont++;
+
+  }
+  printf("La media dei tuoi voti e' ", (float)(voti / cont));
+}
