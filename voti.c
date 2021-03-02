@@ -8,9 +8,9 @@ se i voti da inserire sono terminati accettando come risposta S oppure N.*/
 int main()
 {
   int voti = 0, cont = 0, votiPre; //votiPre = voto precendente
-  char continua;
+  char continua = 's';
 
-  while(continua != 'n' || continua != 'N')
+  while(continua == 's' || continua == 'S')
   {
     printf("Che voto hai preso?: \n");
     scanf("%d", &voti);
@@ -26,5 +26,5 @@ int main()
     cont++;
 
   }
-  printf("La media dei tuoi voti e' ", (float)(voti / cont));
+  printf("La media dei tuoi voti e' %.2f", (float)((float)voti / (float)cont));
 }
