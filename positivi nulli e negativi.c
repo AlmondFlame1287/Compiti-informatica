@@ -11,7 +11,7 @@ di quelli che sono minori di zero e di quelli nulli.
 
 int main()
 {
-  int n = 0, nPos = 0, nNul = 0, nNeg = 0;
+  short int n = 0, nPos = 0, nNul = 0, nNeg = 0;
 
   do
   {
@@ -19,13 +19,11 @@ int main()
     scanf("%d", &n);
 
     if(n > 0)
-    {
       nPos++;
-    }
+
     else if(n == 0)
-    {
       nNul++;
-    }
+
   } while(n >= 0);
 
   printf("Ci sono %d numeri positivi, %d nulli e 1 numero negativo", nPos, nNul);

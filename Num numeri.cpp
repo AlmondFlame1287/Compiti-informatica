@@ -11,8 +11,7 @@ int main()
   scanf("%d", &num);
 
   for(int i; i <= num; i++)
-  {
     add += i;
-  }
+    
   printf("I numeri addizionati sono: %d", add);
 }

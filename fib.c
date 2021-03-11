@@ -12,23 +12,22 @@ in cui ciascun numero, dal terzo in poi, è la somma dei due che lo precedono.
 #include <stdio.h>
 
 
-int main() 
+int main()
 {
     int i, N, primo = 1, secondo = 1, terzo;
 
-    do 
-	{
+    do
+	  {
         printf("Quanti numeri vuoi inserire?: ");
         scanf("%d", &N);
-    } 
-	while (N < 3);
+    } while (N < 3);
 
     printf("0\n");
     printf("1\n");
     printf("1\n");
 
-    for (i = 2; i < N; i++) 
-	{
+    for (i = 2; i < N; i++)
+	  {
         terzo = primo + secondo;
         primo = secondo;
         secondo = terzo;

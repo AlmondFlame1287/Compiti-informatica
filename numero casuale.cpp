@@ -4,7 +4,7 @@
 
 int main()
 {
-	int n, numero, cont = 0, totPari, totDispari, contaPari, contaDispari;
+	short int n, numero, cont = 0, totPari, totDispari, contaPari, contaDispari;
 	do
 	{ // compresa tra 10 e 20
 		printf("Inserisci un numero 10 < N < 20: ");

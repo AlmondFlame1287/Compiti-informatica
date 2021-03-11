@@ -15,9 +15,8 @@ int main()
 		else
 		{
 			for(int i; i <= num; i++)
-			{
 				fattoriale *= i;
-			}
+				
 			printf("Il fattoriale del numero inserito e': %d \n", fattoriale);
 		}
 

@@ -32,6 +32,7 @@ int main()
 
   if(ver == quad)
     printf("I numeri inseriti, quando sommati, arrivano al quadrato del numero inserito");
+    
   else
     printf("I numer inseriti non arrivano al quadrato del primo numero inserito.");
 }

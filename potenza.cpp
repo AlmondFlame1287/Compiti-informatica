@@ -2,7 +2,8 @@
 
 int main()
 {
-  int num, exp, pot;
+  short int num, exp,
+  unsigned int pot;
 
   printf("Dammi un numero e un esponente: ");
   scanf("%d%d", &num, &exp);
@@ -16,5 +17,5 @@ int main()
     }
 
     printf("Il risultato della potenza e': %d", pot);
-  
+
 }

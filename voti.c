@@ -7,7 +7,7 @@ se i voti da inserire sono terminati accettando come risposta S oppure N.*/
 
 int main()
 {
-  int voti = 0, cont = 0, votiPre; //votiPre = voto precendente
+  short int voti = 0, cont = 0, votiPre; //votiPre = voto precendente
   char continua = 's';
 
   while(continua == 's' || continua == 'S')
@@ -15,9 +15,9 @@ int main()
     printf("Che voto hai preso?: \n");
     scanf("%d", &voti);
 
-    //fflush(stdin) pulisce lo standard inpunt, scanf lascia qualcosa nel buffer 
+    //fflush(stdin) pulisce lo standard inpunt, scanf lascia qualcosa nel buffer
     //che viene letto da getchar e va avanti
-    fflush(stdin); 
+    fflush(stdin);
     printf("Vuoi continuare?: \n");
     continua = getchar();
 

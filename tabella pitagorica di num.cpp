@@ -10,9 +10,8 @@ int main()
     scanf("%d", &num);
 
     if(num < 1 || num > 20)
-    {
       printf("Ti ho detto tra 1 e 20. \n");
-    }
+      
   } while(num < 1 || num > 20);
 
   for(int i; i < num; i++)

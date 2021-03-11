@@ -10,11 +10,7 @@ int main()
   for(int i; i <= num; i++)
   {
     if(i % 3 == 0)
-    {
       tre++;
-    }
-
-
   }
 
   printf("Ci sono %d multipli di 3", tre);

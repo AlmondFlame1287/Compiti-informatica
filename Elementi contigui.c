@@ -17,23 +17,16 @@ int main()
 		scanf("%d", &num);
 
 		if(num > somma1)
-		{
 			somma1 += num;
-		}
 		else
-		{
 			somma2 += num;
-		}
+
 
 	} while(num > 0);
 
 	if(somma1 > somma2)
-	{
 		printf(" %d ", somma1);
-	}
 	else
-	{
 		printf(" %d ", somma2);
-	}
 
 }

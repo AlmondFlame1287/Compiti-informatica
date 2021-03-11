@@ -9,22 +9,18 @@ int main()
     printf("Dammi un numero: ");
     scanf("%d", &num);
     fflush(stdin);
-	
+
 	if(i == 0)
 	{
 		max = num;
 		min = num;
 	}
-	
+
     if(num >= max)
-    {
       max = num;
-    }
 
     else if(num <= min)
-    {
       min = num;
-    }
   }
   printf("%d min, %d max", min, max);
 }

@@ -13,14 +13,10 @@ int main()
     scanf("%d", &num);
 
     if(i == 0)
-    {
       min = num;
-    }
 
     if(num <= min)
-    {
       min = num;
-    }
   }
 
   printf("Il numero minore e': %d", min);

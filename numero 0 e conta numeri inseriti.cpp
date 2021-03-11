@@ -14,7 +14,7 @@ int main()
       printf("Inserisci una sequenza di numeri: ");
       scanf("%d", &numeri);
       conta++;
-    }  while(numeri != 0);
+    } while(numeri != 0);
 
   printf("hai inserito %d numeri", conta - 1);
 }
