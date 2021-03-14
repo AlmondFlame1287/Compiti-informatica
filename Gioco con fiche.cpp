@@ -1,60 +1,58 @@
 //Gioco
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <time.h>
 
-int inizio(int giocatori, int soldi);
+#define FICHES 1300
+
+short int nGiocatori = 1;
+
+void inizioPartita(int soldi[8]);
 
 int main()
 {
-
-	ushort nGiocatori;
-	int fiches = 1300;
-
-	do
-	{
-
-		printf("Quanti giocatori ci saranno?: ");
-		scanf("%hu", &nGiocatori);
-
-		if(nGiocatori <= 0 || nGiocatori == 1)
-			printf("Non puoi giocare con questo numero di giocatori. Portati degli amici. \n");
-
-	} while(nGiocatori <= 0 || nGiocatori == 1);
-
-	inizio(nGiocatori, fiches);
+	
+	do {
+		printf("Quanti giocatori ci sono? (max 8): \n");
+		scanf("%d", &nGiocatori);
+		
+		if(nGiocatori > 8)
+			printf("Guarda che ti ho detto che il massimo dei giocatori sono 8\n");
+		
+		else if(nGiocatori <= 0)
+			printf("Come pensi di giocare con meno di un giocatore?!\n");
+			
+	} while(nGiocatori > 8 || nGiocatori <= 0);
+	
+	int fiches[8];
+	
+	for(int i = 1; i <= nGiocatori; i++) { //da a tutti i giocatori lo stesso numero di fiches.
+		
+		fiches[i] = FICHES;
+	}
+	
+	inizioPartita(fiches[8]);
+	
 }
 
-int inizio(ushort giocatori, int soldi)
+void inizioPartita(int soldi[8])
 {
-	srand(time(NULL));
-	int puntata = 0;
-
-	do
-	{
-		for(ushort i = 1; i <= giocatori; i++)
-		{
-			printf("Giocatore %d, hai a disposizione %d fiches, quanto vuoi puntare?: ", i, soldi);
-			scanf("%d", &puntata);
-
-			do //controllo puntata
-			{
-				if(puntata > soldi)
-				{
-					printf("Non puoi puntare piu' di quello che hai. Prova di nuovo: ");
-					scanf("%d", &puntata);
-				}
-				else if(puntata <= 0)
-				{
-					printf("Non puoi puntare 0 o meno. Prova di nuovo: ");
-					scanf("%d", &puntata);
-				}
-			} while(puntata > soldi || puntata <= 0);
-
-			fiches -= puntata;
-
-		}
-
-	} while(soldi > 0)
-
+	int puntata;
+	
+		for(int i = 1; i <= nGiocatori; i++) {
+			
+			do {
+				
+				printf("Giocatore %d, quante fiches vuoi giocare?: ", i);
+				scanf("%d", &puntata);
+				
+				if(soldi[i] < puntata) 
+					printf("Non puoi puntare piu' di cio' che hai");
+				
+				else
+					soldi[i] -= puntata;
+			} while(soldi[i] > 0);
+		
+		} 
+	
 }
