@@ -9,13 +9,19 @@ int main()
 
 int nLetti()
 {
-	int n, conta;
-	
-	do {
+	int n, conta, somma = 0;
+
+	do
+	 {
+
 		printf("Dammi un numero: ");
 		scanf("%d", &n);
 		conta++;
+		somma += n;
+
 	} while(n != 0);
-	
+
+	printf("La somma e' %d \n", somma);
+
 	return conta;
 }
