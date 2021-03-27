@@ -37,7 +37,7 @@ void continua();
 
 
 //dichiarazione variabili globali
-int saldo = 1000, puntata, dado1, dado2, sdado, probVittoria, probSconfitta, c = 1; 
+int saldo = 1000, puntata, dado1, dado2, sdado, probVittoria, probSconfitta, c = 1;
 
 //Fatto in collaborazione con Grusio Cristoforo e Di Bernardo Alessandro :3
 int main()
@@ -72,7 +72,7 @@ int main()
 						probSconfitta = rand() % 100 + 50;
 						probVittoria -= probSconfitta;
 					}
-	
+
 					//sistema casuale dei dadi
 					if (probVittoria > 95)
 					{
@@ -85,11 +85,11 @@ int main()
 						dado2 = rand() % 6 + 1;
 					}
 					sdado = dado1 + dado2;
-	
-	
+
+
 					if (sdado > 6)
 					{
-						saldo = saldo + puntata;
+						saldo += puntata;
 						printf("Hai fatto %d. Hai vinto %d. Il saldo disponibile e' ora %d. Vuoi continuare? (1  = continua/ 0 = termina)\n", sdado, puntata, saldo);
 						scanf("%d", &c);
 					}
@@ -99,7 +99,7 @@ int main()
 						printf("Hai fatto %d. Hai perso %d. Il saldo disponibile e' ora %d. Vuoi continuare? (1 = continua/ 0 = termina)\n", sdado, puntata, saldo);
 						scanf("%d", &c);
 					}
-		
+
 					if (c == 1)
 					{
 						main();
@@ -115,23 +115,22 @@ int main()
 					printf("Il saldo disponibile e' %d. Quant'e' la tua puntata?\n", saldo);
 					scanf("%d", &puntata);
 				}
-			} 
+			}
 			else
 			{
 				do
 				{
 					printf("E' finita per te.. premi 0 per uscire.");
 					scanf("%d", &c);
-					
+
 					if(c != 0)
 					{
 						printf("E' finita per te.. premi 0 per uscire.");
 						scanf("%d", &c);
 					}
 				} while(c != 0);
-					
+
 			}
 		} while (puntata >= saldo && c != 0);
 	}
 }
-

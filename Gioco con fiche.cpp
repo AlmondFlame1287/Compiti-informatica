@@ -1,60 +1,69 @@
-//Gioco
+//poker per bellezza
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <time.h>
 
-int inizio(int giocatori, int soldi);
+#define FICHES 1300
 
-int main()
+void inizioGioco(int monete[7], int giocatori);
+
+//TODO: CONTINUARE A COSTRUIRE PASSO DOPO PASSO IL CODICE PER L'ESERCIZIO DEL POKER
+
+
+int main() //menu
 {
-
-	ushort nGiocatori;
-	int fiches = 1300;
+	int nGiocatori, soldi[7];
 
 	do
 	{
 
-		printf("Quanti giocatori ci saranno?: ");
-		scanf("%hu", &nGiocatori);
+		printf("Quanti giocatori ci saranno? (max 8): ");
+		scanf("%d", &nGiocatori);
 
-		if(nGiocatori <= 0 || nGiocatori == 1)
-			printf("Non puoi giocare con questo numero di giocatori. Portati degli amici. \n");
+		if(nGiocatori <= 0)
+			printf("Come pensi di giocare con %d giocatori?", nGiocatori);
 
-	} while(nGiocatori <= 0 || nGiocatori == 1);
+		else if(nGiocatori > 8)
+			printf("Ti ho detto che il massimo e' 8..");
 
-	inizio(nGiocatori, fiches);
+	} while(nGiocatori <= 0 || nGiocatori > 8);
+
+	for(int i = 0; i < nGiocatori; i++)
+	{
+		soldi[i] = FICHES;
+	}
+
+	inizioGioco(soldi[7], nGiocatori); //passa a inizio gioco con i soldi di x persone
+
 }
 
-int inizio(ushort giocatori, int soldi)
+
+void inizioGioco(int monete[7], int giocatori)
 {
 	srand(time(NULL));
-	int puntata = 0;
 
-	do
+
+
+	int puntata[giocatori], x = 0; //x = contatore di giocatori
+
+	for(int i = 0; i < giocatori; i++)
 	{
-		for(ushort i = 1; i <= giocatori; i++)
+
+		do
 		{
-			printf("Giocatore %d, hai a disposizione %d fiches, quanto vuoi puntare?: ", i, soldi);
-			scanf("%d", &puntata);
 
-			do //controllo puntata
-			{
-				if(puntata > soldi)
-				{
-					printf("Non puoi puntare piu' di quello che hai. Prova di nuovo: ");
-					scanf("%d", &puntata);
-				}
-				else if(puntata <= 0)
-				{
-					printf("Non puoi puntare 0 o meno. Prova di nuovo: ");
-					scanf("%d", &puntata);
-				}
-			} while(puntata > soldi || puntata <= 0);
+			x++;
+			printf("Quanto vuoi puntare, giocatore %d?: ", x)
+			scanf("%d", &puntata[i]);
 
-			fiches -= puntata;
+			monete[i] -= puntata[i];
 
-		}
+		} while(x <= giocatori);
 
-	} while(soldi > 0)
+	}
+
+
+
+
 
 }
